@@ -42,3 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('/country_visits', 'VisitsController@index')->name('voyager.visits');
 });
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
