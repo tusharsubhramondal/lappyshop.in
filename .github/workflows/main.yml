@@ -16,7 +16,7 @@ jobs:
       with:
         server: appzone.in
         username: sujay@appzone.in
-        password: !$YV1hn;)w,H
+        password: }cz#D2ffNppZ
         exclude: |
           **/.git*
           **/.git*/**
