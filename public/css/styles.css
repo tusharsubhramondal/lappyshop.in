@@ -1,0 +1,54 @@
+.navbar {
+  background-color: #0863fb;
+}
+
+a:hover {
+  color: #222 !important;
+  text-decoration: none;
+}
+
+.site-intro-section {
+  margin-top: 20px;
+}
+
+.banner-images {
+  height: 400px;
+}
+
+.before-footer {
+  padding: 50px;
+  margin-bottom: 30px;
+}
+
+a {
+  color: white;
+}
+
+.footer-background {
+  background: #0863fb;
+}
+
+.social-icons {
+  display: flex;
+  padding-left: 0;
+}
+
+.social-icons li {
+  margin-right: 10px;
+}
+
+li:last-child {
+  margin-right: 0;
+}
+
+.price-filter {
+  color: #222;
+}
+
+.menu-button:focus {
+  outline: none !important;
+}
+
+.hover-color-blue:hover {
+  color: #0863fb !important;
+}
