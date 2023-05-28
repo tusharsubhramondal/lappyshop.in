@@ -4,12 +4,13 @@ function productImage($path) {
     /*
     TODO reomve this in production, this is just for heroku demo app to work.
     */
-    // $found = file_exists('images/' . $path);
+    // $found = file_exists('http://lappyshop.in/storage' . $path);
     // if($found) {
-    //     return asset('images/' . $path);
+        return asset('http://lappyshop.in/storage/' . $path);
     // }
+
     // TODO leave this line in production.
-    return $path && file_exists(public_path('storage/' . $path)) ? asset('storage/' . $path) : asset('images/not-found.jpg');
+    // return $path && file_exists(public_path('storage/' . $path)) ? asset('storage/' . $path) : asset('images/not-found.jpg');
 }
 
 function format($price) {

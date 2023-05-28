@@ -11,6 +11,8 @@ class WelcomePageController extends Controller
     {
         $products = Product::inRandomOrder()->take(6)->get();
         $hotProducts = Product::inRandomOrder()->take(3)->get();
+        // echo '<pre>';
+        // print_r($products);
         return view('welcome')->with([
             'products'=> $products,
             'hotProducts' => $hotProducts

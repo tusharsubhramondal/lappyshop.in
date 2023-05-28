@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Welcome')
+
 @section('content')
 
 <!-- start hero section -->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,68 +49,110 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>
+</div> -->
 
-<div class="container site-intro-section">
-    <div class="content-head">
-        <h2 style="text-align:center; font-weight: bold">Ecommerce</h2>
-        <p style="text-align: center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusamus eos quibusdam, esse voluptates voluptatibus id corporis facere neque amet alias molestias itaque ex porro architecto blanditiis distinctio maxime laboriosam.</h2>
-    </div>
-    <h2 class="header text-center">Featured Products</h2>
-    <!-- start products row -->
-    <div class="row">
-        @foreach ($products as $product)
-        <!-- start single product -->
-        <div class="col-md-6 col-sm-12 col-lg-4 product">
-            <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
-                <div class="card view overlay zoom">
-                    <img src="{{ productImage($product->image) }}" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $product->name }}<span class="float-right">$ {{ format($product->price) }}</span></h5>
-                        {{-- <div class="product-actions" style="display: flex; align-items: center; justify-content: center">
-                                <a class="cart" href="#" style="margin-right: 1em"><i style="color:blue; font-size: 1.3em" class="fas fa-cart-plus"></i></a>
-                                <a class="like" href="#" style="margin-right: 1em"><i style="color:blue; font-size: 1.3em" class="fa fa-thumbs-up"></i></a>
-                                <a class="heart" href="#"><i style="color:blue; font-size: 1.3em" class="fa fa-heart-o"></i></a>
-                            </div> --}}
-                    </div>
-                </div>
-            </a>
+<!-- intro -->
+<section class="pt-3">
+  <div class="container">
+    <div class="row gx-3">
+      <main class="col-lg-9">
+        <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+          <div style="max-width: 500px;">
+            <h2 class="text-white">
+              Great products with <br />
+              best deals
+            </h2>
+            <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+            <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+          </div>
         </div>
-        <!-- end single product -->
+      </main>
+      <aside class="col-lg-3">
+        <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
+          <div class="card-body text-center pb-5">
+            <h5 class="pt-5 text-white">Amazing Gifts</h5>
+            <p class="text-white">No matter how far along you are in your sophistication</p>
+            <a href="#" class="btn btn-outline-light"> View more </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <!-- row //end -->
+  </div>
+  <!-- container end.// -->
+</section>
+<!-- intro -->
+
+<!-- Products -->
+<section>
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>New products</h3>
+    </header>    
+     <div class="row">        
+        @foreach ($products as $product)      
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card my-2 shadow-2-strong">
+                <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
+                    <img src="{{ productImage($product->image) }}" class="card-img-top rounded-2" style="aspect-ratio: 1 / 1" />
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Rs. {{ format($product->price) }}</h5>
+                    <p class="card-text">{{ $product->name }}</p>
+                    <p class="card-text">{{ $product->details }}</p>
+                </div>
+            </div>
+        </div>
         @endforeach
     </div>
-    <!-- end products row -->
     <div class="show-more">
         <a href="{{ route('shop.index') }}">
             <button class="btn custom-border-n">Show more</button>
         </a>
     </div>
-    <hr>
-    <h2 class="header text-center">Hot Sales</h2>
-    <!-- start products row -->
+  </div>
+</section>
+
+<!-- Features -->
+<section>
+  <div class="container">
+    <div class="card p-4 bg-primary">
+      <div class="row align-items-center">
+        <div class="col">
+          <h4 class="mb-0 text-white">Best products and brands in store</h4>
+          <p class="mb-0 text-white-50">Trendy products and gadgets for your daily needs</p>
+        </div>
+        <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Features -->
+
+<!-- Recommended -->
+<section>
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>Recommended</h3>
+    </header>
     <div class="row">
         @foreach ($hotProducts as $product)
-        <!-- start single product -->
-        <div class="col-md-6 col-sm-12 col-lg-4 product">
-            <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
-                <div class="card view overlay zoom">
-                    <img src="{{ productImage($product->image) }}" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $product->name }}<span class="float-right">$ {{ format($product->price) }}</span></h5>
-                        {{-- <div class="product-actions" style="display: flex; align-items: center; justify-content: center">
-                                <a class="cart" href="#" style="margin-right: 1em"><i style="color:blue; font-size: 1.3em" class="fas fa-cart-plus"></i></a>
-                                <a class="like" href="#" style="margin-right: 1em"><i style="color:blue; font-size: 1.3em" class="fa fa-thumbs-up"></i></a>
-                                <a class="heart" href="#"><i style="color:blue; font-size: 1.3em" class="fa fa-heart-o"></i></a>
-                            </div> --}}
-                    </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card my-2 shadow-2-strong">
+                <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
+                    <img src="{{ productImage($product->image) }}" class="card-img-top rounded-2" style="aspect-ratio: 1 / 1" />
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Rs. {{ format($product->price) }}</h5>
+                    <p class="card-text">{{ $product->name }}</p>
+                    <p class="card-text">{{ $product->details }}</p>
                 </div>
-            </a>
-        </div>
-        <!-- end single product -->
+            </div>
+        </div>       
         @endforeach
     </div>
-    <!-- end products row -->
-</div>
-<!-- end page content -->
+  </div>
+</section>
+
 
 @endsection
