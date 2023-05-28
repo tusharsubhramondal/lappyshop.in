@@ -69,7 +69,7 @@
                         <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
                     </a>
                     <p class="mt-3">
-                       © lappyshop.in - All rights reserved 2023
+                       © lappyshop.in 2023
                     </p>
                 </div>
                 <!-- Grid column -->
